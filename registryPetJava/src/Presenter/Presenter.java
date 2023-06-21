@@ -169,11 +169,13 @@ public class Presenter {
                         hamsterModel.getShowHumanFriend();
                         hamsterModel.addCommand(hamsterModel, view.setComandString(), view.setChooseIdPet());
                         view.successfulOperation();
+                        break;
                     }
                     case 6: {
                         horseModel.getShowHumanFriend();
                         horseModel.addCommand(horseModel, view.setComandString(), view.setChooseIdPet());
                         view.successfulOperation();
+                        break;
                     }
                 }
                 buttonClick();
