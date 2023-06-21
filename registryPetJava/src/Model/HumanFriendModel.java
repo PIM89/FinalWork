@@ -2,11 +2,10 @@ package Model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
+
 
 public abstract class HumanFriendModel {
-    private static final AtomicInteger seed = new AtomicInteger();
-    private static int id = 0;
+    private int id;
     private String name;
     private LocalDate birthday;
     private ArrayList<String> command = new ArrayList<>();
@@ -14,10 +13,11 @@ public abstract class HumanFriendModel {
 
 
     public HumanFriendModel() {
+
     }
 
-    public static int getId() {
-        return id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -36,13 +36,6 @@ public abstract class HumanFriendModel {
         this.birthday = birthday;
     }
 
-    public void addCommand(HumanFriendModel humanFriendModel, String command, int id) {
-
-        if (humanFriendModel.id == id) {
-            humanFriendModel.command.add(command);
-        }
-    }
-
     @Override
     public String toString() {
         return "ID: " + id +
@@ -50,14 +43,23 @@ public abstract class HumanFriendModel {
                 ", дата рождения: " + birthday;
     }
 
-    public void getShowHumanFriendModels(HumanFriendModel humanFriendModels) {
-        for (HumanFriendModel humanFriendModel : this.humanFriendModels) {
+    public void getShowHumanFriend() {
+        for (HumanFriendModel humanFriendModel : humanFriendModels) {
             System.out.println(humanFriendModel.toString());
         }
     }
 
-    public void setHumanFriendModels(HumanFriendModel humanFriendModels) {
-        this.humanFriendModels.add(humanFriendModels);
+    public void setHumanFriend(HumanFriendModel humanFriendModel) {
+        humanFriendModel.humanFriendModels.add(humanFriendModel);
+    }
+
+    public void addCommand(HumanFriendModel humanFriendModel, String command, int id) {
+
+        if (humanFriendModel.id == id) {
+            humanFriendModel.command.add(command);
+        } else {
+            System.out.println("Животного с таким id нет!");
+        }
     }
 
     public void getHumanFriendsCommand(HumanFriendModel humanFriendModel, int id) {

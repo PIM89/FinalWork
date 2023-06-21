@@ -1,6 +1,7 @@
 import Model.*;
 import Presenter.Presenter;
 import View.View;
+import Counter.Counter;
 
 public class Main {
     public static void main(String[] args) throws ClassNotFoundException {
@@ -10,7 +11,8 @@ public class Main {
                 new DogModel(),
                 new DonkeyModel(),
                 new HamsterModel(),
-                new HorseModel());
+                new HorseModel(),
+                new Counter());
         presenter.buttonClick();
     }
 }
